@@ -7,9 +7,9 @@ public class ArrayList <T>{
 	public ArrayList() {
 	}
 	
-	public T get(int loc) throws IndexOutOfBoundsException {
+	public <T> T get(T loc) throws IndexOutOfBoundsException {
 		
-		return null;
+		return T[loc];
 	}
 	
 	public void add(T val) {

@@ -29,7 +29,7 @@ public class IntroToGenerics {
 	//The variable t can be any type: String, Object, Robot... whatever
 	public <Template> Template calcStuff(Template t, int r) {
 		for (int i = 0; i < r; i++) {
-			System.out.println(t);
+			System.out.println(t);	
 		}
 		
 		return t;

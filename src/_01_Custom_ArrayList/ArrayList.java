@@ -15,7 +15,7 @@ public class ArrayList<T> {
 		if (loc < 0 || loc > arr.length - 1) {
 			throw new IndexOutOfBoundsException();
 		} else {
-			System.out.println(arr[loc]);
+			//			System.out.println(arr[loc]);
 			return arr[loc];
 		}
 	}
@@ -28,16 +28,22 @@ public class ArrayList<T> {
 		copyarr[arr.length] = val;
 		arr = copyarr;
 		for (int i = 0; i < arr.length - 1; i++) {
-			System.out.println(arr[i]);
+			//			System.out.println(arr[i]);
 		}
 	}
 
 	public void insert(int loc, T val) throws IndexOutOfBoundsException {
-		for (int i = loc; i < arr.length - 1; i++) {
-			T holder = arr[i + 1];
-			arr[i + 1] = arr[i];
+		T[] copyarr = (T[]) new Object[arr.length + 1];
+		for (int i = 0; i < copyarr.length; i++) {
+			if (i < loc) {
+				copyarr[i] = arr[i];
+			} else if (loc == i) {
+				copyarr[i] = val;
+			} else {
+				copyarr[i] = arr[i - 1];
+			}
 		}
-		arr[loc] = val;
+		arr = copyarr;
 	}
 
 	public void set(int loc, T val) throws IndexOutOfBoundsException {
@@ -46,7 +52,11 @@ public class ArrayList<T> {
 	}
 
 	public void remove(int loc) throws IndexOutOfBoundsException {
-		arr[loc].equals(null);
+		for (int i = 0; i < arr.length-1; i++) {
+			if(i == loc) {
+				
+			}
+		}
 	}
 
 	public boolean contains(T val) {

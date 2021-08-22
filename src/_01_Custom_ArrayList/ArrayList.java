@@ -52,15 +52,29 @@ public class ArrayList<T> {
 	}
 
 	public void remove(int loc) throws IndexOutOfBoundsException {
-		for (int i = 0; i < arr.length-1; i++) {
-			if(i == loc) {
-				
+		T[] copyarr = (T[]) new Object[arr.length - 1];
+		for (int i = 0; i < copyarr.length; i++) {
+			if (i < loc) {
+				copyarr[i] = arr[i];
+			} else if (i >= loc) {
+				copyarr[i] = arr[i + 1];
 			}
 		}
+		arr = copyarr;
 	}
 
 	public boolean contains(T val) {
-
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == val) {
+				return true;
+			}
+		}
 		return false;
+
+	}
+
+	public int size() {
+
+		return arr.length;
 	}
 }

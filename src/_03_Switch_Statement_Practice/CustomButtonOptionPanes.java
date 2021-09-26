@@ -15,8 +15,25 @@ public class CustomButtonOptionPanes {
 		switch(choice) {
 		case "Sunday":
 			JOptionPane.showMessageDialog(null, "The best and the worse day - right before Monday but the day where you have to do the least.");
+			break;
 		case "Monday":
-			JOptionPane.showMessageDialog(null, "The best and the worse day - right before Monday but the day where you have to do the least.");
+			JOptionPane.showMessageDialog(null, "The worse day - consistently");
+			break;
+		case "Tuesday":
+			JOptionPane.showMessageDialog(null, "Better than Monday - usually");
+			break;
+		case "Wednesday":
+			JOptionPane.showMessageDialog(null, "I'm halfway through the week");
+			break;
+		case "Thursday":
+			JOptionPane.showMessageDialog(null, "It's almost Friday");
+			break;
+		case "Friday":
+			JOptionPane.showMessageDialog(null, "Thank god school is over.");
+			break;
+		case "Saturday":
+			JOptionPane.showMessageDialog(null, "I wish I didn't have anything to do today.");
+			break;
 		}
 	}
 }

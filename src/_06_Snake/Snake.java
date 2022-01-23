@@ -102,7 +102,13 @@ public class Snake {
 	public boolean isOutOfBounds() {
 		//1. complete the method so it returns true if the head of the snake is outside of the window
 		//   and false otherwise
-		
+		if(_00_SnakeGame.WIDTH < head.getLocation().x){
+			return true;
+		} else if(_00_SnakeGame.HEIGHT < head.getLocation().y) {
+			return true;
+		} else if(0 > head.getLocation().y) {
+			return true;
+		}
 		return false;
 	}
 

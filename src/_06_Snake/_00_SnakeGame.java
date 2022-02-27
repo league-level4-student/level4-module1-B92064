@@ -37,13 +37,19 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	private Location foodLocation;
 
+	Random r = new Random();
+	
 	public _00_SnakeGame() {
 		snake = new Snake(new Location(WIDTH / 2, HEIGHT / 2));
-
+		int randIntW = r.nextInt(WINDOW_WIDTH);
+		int randIntH = r.nextInt(WINDOW_HEIGHT);
+		Location randLocation = new Location(randIntW, randIntH);
+		foodLocation = randLocation;
 		window = new JFrame("Snake");
 		panel = new JPanel() {
 			private static final long serialVersionUID = 1L;
-
+			
+			
 			@Override
 			public void paintComponent(Graphics g) {
 				Graphics2D g2 = (Graphics2D) g;
@@ -142,11 +148,14 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	private void setFoodLocation() {
 		//1. Create a new Location object that is set to a random location
-		while (snake.isLocationOnSnake(foodLocation)) {
-			Random r = new Random();
-			int randIntW = r.nextInt(WINDOW_WIDTH);
-			int randIntH = r.nextInt(WINDOW_HEIGHT);
-			Location randLocation = new Location(randIntW, randIntH);
+		int randIntW = r.nextInt(WINDOW_WIDTH);
+		int randIntH = r.nextInt(WINDOW_HEIGHT);
+		Location randLocation = new Location(randIntW, randIntH);
+		while (snake.isLocationOnSnake(randLocation)) {
+			
+			 randIntW = r.nextInt(WINDOW_WIDTH);
+			 randIntH = r.nextInt(WINDOW_HEIGHT);
+			 randLocation = new Location(randIntW, randIntH);
 			//2. set the foodLocation variable equal to the Location object you just created.
 			foodLocation = randLocation;
 			//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake

@@ -82,8 +82,8 @@ public class Snake {
 			return;
 		}
 		if (canMove) {
-			canMove = false;
 			currentDirection = d;
+			canMove = false;
 		}
 	}
 

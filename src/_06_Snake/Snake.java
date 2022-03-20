@@ -40,11 +40,11 @@ public class Snake {
 		int y = 0;
 		switch (currentDirection) {
 		case RIGHT:
-			x = -1;
+			x = 1;
 			break;
 
 		case LEFT:
-			x = 1;
+			x = -1;
 			break;
 
 		case UP:
@@ -75,10 +75,10 @@ public class Snake {
 		//   set canMove equal to false.
 		//   make sure the snake cannot completely reverse directions.
 
-		if ((currentDirection == Direction.DOWN && d != Direction.UP)
-				|| (currentDirection == Direction.UP && d != Direction.DOWN)
-				|| (currentDirection == Direction.LEFT && d != Direction.RIGHT)
-				|| (currentDirection == Direction.RIGHT && d != Direction.LEFT)) {
+		if ((currentDirection == Direction.DOWN && d == Direction.UP)
+				|| (currentDirection == Direction.UP && d == Direction.DOWN)
+				|| (currentDirection == Direction.LEFT && d == Direction.RIGHT)
+				|| (currentDirection == Direction.RIGHT && d == Direction.LEFT)) {
 			return;
 		}
 		if (canMove) {
@@ -100,11 +100,13 @@ public class Snake {
 	public boolean isOutOfBounds() {
 		//1. complete the method so it returns true if the head of the snake is outside of the window
 		//   and false otherwise
-		if (_00_SnakeGame.WIDTH < head.getLocation().x) {
+		if (_00_SnakeGame.WIDTH <= head.getLocation().x) {
 			return true;
-		} else if (_00_SnakeGame.HEIGHT < head.getLocation().y) {
+		} else if (_00_SnakeGame.HEIGHT <= head.getLocation().y) {
 			return true;
 		} else if (0 > head.getLocation().y) {
+			return true;
+		} else if (0 > head.getLocation().x) {
 			return true;
 		}
 		return false;
@@ -114,7 +116,7 @@ public class Snake {
 		//1. complete the method so it returns true if the head is located
 		//   in the same location as any other body segment
 
-		for (int i = 0; i < snake.size(); i++) {
+		for (int i = 1; i < snake.size(); i++) {
 			if (head.getLocation().equals(snake.get(i).getLocation()))
 				return true;
 		}
